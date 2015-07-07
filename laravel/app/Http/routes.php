@@ -11,6 +11,20 @@
 |
 */
 
+Route::group(array('prefix'=>'/api'),function(){
+	Route::get('users/latest','API\UsersController@getLatestUsers');
+	Route::post('login/auth','API\AuthController@Login');
+	Route::get('login/destroy','API\AuthController@Logout');
+});
+
 Route::get('/', function () {
     return view('home.welcome');
 });
+
+Route::get('login', function () {
+    return view('login.login');
+});
+
+
+Blade::setEscapedContentTags('[[', ']]');
+Blade::setContentTags('[[[', ']]]');

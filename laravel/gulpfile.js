@@ -12,5 +12,15 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.scripts([
+
+    	'app/config.js',
+    	
+    	<!-- controllers -->
+    	'app/controllers/homeController.js',
+    	'app/controllers/loginController.js',
+
+    	<!-- directives -->
+    	'app/directives/autocompleteDirective.js'
+    	]);
 });

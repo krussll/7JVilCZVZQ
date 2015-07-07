@@ -1,51 +1,74 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>GUIDE.ME</title>
 
-        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <!-- Included CSS Files (Compressed) -->
+        {!! HTML::style('css/foundation.css') !!}
+        {!! HTML::style('css/main.css') !!}
+        {!! HTML::style('css/app.css') !!}
 
-        <style>
-            html, body {
-                height: 100%;
-            }
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+        {!! Minify::javascript('/js/modernizr.foundation.js') !!}
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-                margin-bottom: 40px;
-            }
-
-            .quote {
-                font-size: 24px;
-            }
-        </style>
+        {!! HTML::style('fonts/ligature.css') !!}
+      
+      <!-- Google fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic' rel='stylesheet' type='text/css' />
+    
     </head>
-    <body>
-        <div class="container">
-            <div class="content">
-            @yield('content')
-         </div>
+
+    <body ng-app="myApp">
+
+<!-- ######################## Main Menu ######################## -->
+    <nav>
+      <div class="row">
+        <div class="small-12 medium-4 large-6 columns namelogo">
+          <h1><a href="/">GUIDE.ME</a> </h1>
         </div>
-    </body>
+        <div class="small-12 medium-8 large-6 columns">
+          <div class="nav-bar">
+            <ul class="button-group">
+            <li><a href="#" class="button">About</a></li>
+            <li><a href="/login" class="button">Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div> 
+    </nav>
+      
+@yield('content')
+
+<!-- ######################## Footer ######################## -->  
+      
+<footer>
+
+      <div class="row">
+      
+          <div class="twelve columns footer">
+              <a href="http://twitter.com/dieterarno" class="lsf-icon" style="font-size:16px; margin-right:15px" title="twitter">Twitter</a> 
+              <a href="http://csstemplateheaven.com/csstemplateheaven" class="lsf-icon" style="font-size:16px; margin-right:15px" title="facebook">Facebook</a>
+              <a href="http://csstemplateheaven.com/csstemplateheaven" class="lsf-icon" style="font-size:16px; margin-right:15px" title="pinterest">Pinterest</a>
+              <a href="http://twitter.com/dieterarno" class="lsf-icon" style="font-size:16px" title="instagram">Instagram</a>
+          </div>
+          
+      </div>
+
+</footer>         
+
+<!-- ######################## Scripts ######################## --> 
+
+    <!-- Included JS Files (Compressed) -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&types=geocode&region=GB"></script>
+      
+
+      {!! Minify::javascript('/js/foundation.min.js') !!}
+      {!! Minify::javascript('/js/app.js') !!}
+
+
+      {!! Minify::javascript('/js/all.js') !!}
+
+
+</body>
 </html>
