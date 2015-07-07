@@ -5,6 +5,8 @@
 /************************************************************************************/
 
 /* CSS */
+[ng\:cloak], [ng-cloak], .ng-cloak { display: none; }
+body { padding-top: 65px; }
 
 @font-face {
     font-family: 'LigatureSymbols';
@@ -84,9 +86,9 @@ hr {
 }
 
 .page_wrap {margin: 0 auto 25px}
-header { background: url("/images/home_banner.jpg");background-size: cover; background-position: 50% 50%;  height: 350px; clear:both; }
+header { background: url("/images/home_banner.jpg");background-size: cover; background-position: 50% 50%;  height: 400px; clear:both; }
 header > .header-content { background: rgba(255, 255, 255, 0.4); width: 100%; height: 100%;padding: 60px 0 40px; position: absolute; text-shadow: 1px 1px rgba(0, 0, 0, 0.1); }
-nav { position: fixed; width: 100%; background: rgba(255, 255, 255); z-index: 100; }
+nav { position: fixed; width: 100%; background: rgba(255, 255, 255); z-index: 100; top: 0; }
 .blog_post {clear: both; padding: 15px 0; overflow:auto; margin-bottom: 20px; background:#FFF; box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4)}
 .blog_post h3 {margin-top:0}
 .blog_post img {}
@@ -101,6 +103,7 @@ p {color: #333}
 .excerpt {font-size: 24px; margin-bottom: 0; font-weight: normal; font-family:Georgia, "Times New Roman", Times, serif; font-style:italic}
 
 h1,h2,h3,h4 {font-family:'Open Sans Condensed',sans-serif; font-weight: normal; color: #333; margin: 20px 0}
+h3,h4 {margin: 5px 0}
 
 /* sections */
 .section_light { background: #FFF;border-top: 1px dotted #999; border-bottom: 1px dotted #999; padding: 20px 0; clear:both}
@@ -118,7 +121,7 @@ h1,h2,h3,h4 {font-family:'Open Sans Condensed',sans-serif; font-weight: normal; 
 /* END Frontpage sections */
 
 
-.heading_supersize {font-size: 128px; text-align:center; font-weight: normal; line-height: 150px; margin:0 0 10px; color: #212121}
+.heading_supersize {font-size: 128px; text-align:center; font-weight: normal; line-height: 150px; margin:40px 0px 10px 0px; color: #212121}
 .heading_largesize {font-size: 34px; text-align:; font-weight: normal}
 
 .dropcap_red, 
@@ -260,7 +263,13 @@ label { margin-bottom: 10px; }
   float: left;
 }
 
-.box_fluid_inner {padding: 0 15px 0}
+.box_fluid_inner {padding: 0 15px 15px; }
 
-.col_fluid {width: 32%}
-.col_fluid img {width: 100%}
+.col_fluid {width: 31%; margin:1%;}
+.col_fluid img {width: 100%;}
+
+.media-photo-badge { width: 60px; height:60px; top: -45px; right: 15px; float:right; position:relative;}
+.media-photo {overflow: hidden; height: 70px; width:70px;}
+
+.media-round { border-radius: 50%;
+  border: 2px solid #fff; }

@@ -1,7 +1,7 @@
 var app = angular.module('myApp', []);
 
 
-app.controller('homeController', function($scope, $http) {
+app.controller('homeController', function($scope, $http, $location) {
     $scope.home = 
     {
     	control: {
@@ -24,13 +24,8 @@ app.controller('homeController', function($scope, $http) {
     	},
     	submit: function () {
             var home = this;
-            console.log(home.search.location);
 
-            $http.post('api/guides/search', home.search)
-                .success(function(response)
-                {
-
-                });
+             window.location = "s/" + home.search.location;
         }
 	}
 });
@@ -50,6 +45,31 @@ app.controller('loginController', function($scope, $http) {
     	{
     	}
     	
+	}
+});
+app.controller('searchController', function($scope, $http) {
+    $scope.search = 
+    {
+    	control: {
+            isLoading: true
+        },
+        searchData: {
+            location: ''
+        },
+        profiles: null,
+        init: function ($location)
+        {
+            var search = this;
+            search.searchData.location = $location;
+            search.control.isLoading = true;
+            $http.post('/api/guides/location', search.searchData)
+                .success(function(data) 
+                    {
+                        console.log(data);
+                        search.profiles = data;
+                        search.control.isLoading = false;
+                });
+        }
 	}
 });
 

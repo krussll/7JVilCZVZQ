@@ -1,6 +1,6 @@
 
 
-app.controller('homeController', function($scope, $http) {
+app.controller('homeController', function($scope, $http, $location) {
     $scope.home = 
     {
     	control: {
@@ -23,13 +23,8 @@ app.controller('homeController', function($scope, $http) {
     	},
     	submit: function () {
             var home = this;
-            console.log(home.search.location);
 
-            $http.post('api/guides/search', home.search)
-                .success(function(response)
-                {
-
-                });
+             window.location = "s/" + home.search.location;
         }
 	}
 });

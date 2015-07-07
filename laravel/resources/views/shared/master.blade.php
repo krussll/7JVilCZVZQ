@@ -9,16 +9,16 @@
         {!! HTML::style('css/app.css') !!}
 
 
-        {!! Minify::javascript('/js/modernizr.foundation.js') !!}
+     
 
-        {!! HTML::style('fonts/ligature.css') !!}
-      
+      {!! HTML::style('fonts/ligature.css') !!}
+      <!-- Included JS Files (Compressed) -->
       <!-- Google fonts -->
       <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic' rel='stylesheet' type='text/css' />
     
     </head>
 
-    <body ng-app="myApp">
+    <body ng-app="myApp"> 
 
 <!-- ######################## Main Menu ######################## -->
     <nav>
@@ -57,17 +57,15 @@
 </footer>         
 
 <!-- ######################## Scripts ######################## --> 
-
-    <!-- Included JS Files (Compressed) -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&types=geocode&region=GB"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&types=geocode&region=GB"></script>
       
 
-      {!! Minify::javascript('/js/foundation.min.js') !!}
-      {!! Minify::javascript('/js/app.js') !!}
+{!! Minify::javascript('/js/foundation.min.js') !!}
+{!! Minify::javascript('/js/app.js') !!}
+{!! Minify::javascript('/js/modernizr.foundation.js') !!}
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 
-
-      {!! Minify::javascript('/js/all.js') !!}
+{!! Minify::javascript('/js/all.js') !!}
 
 
 </body>

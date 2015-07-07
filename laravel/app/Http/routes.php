@@ -15,6 +15,7 @@ Route::group(array('prefix'=>'/api'),function(){
 	Route::get('users/latest','API\UsersController@getLatestUsers');
 	Route::post('login/auth','API\AuthController@Login');
 	Route::get('login/destroy','API\AuthController@Logout');
+	Route::post('guides/location', 'API\GuidesController@getGuidesByLocation');
 });
 
 Route::get('/', function () {
@@ -24,6 +25,9 @@ Route::get('/', function () {
 Route::get('login', function () {
     return view('login.login');
 });
+
+
+Route::get('s/{location}', ['uses' =>'SearchController@searchGuides']);
 
 
 Blade::setEscapedContentTags('[[', ']]');
