@@ -7,10 +7,10 @@
       <div class="twelve columns">
       <h1>Guides - [[$location]]</h1> 
         <img src='/images/ajax-loader.gif' ng-show="search.control.isLoading" />
-        <div id="container" ng-hide="search.control.isLoading" ng-repeat="guide in search.profiles">
+        <div id="container" ng-hide="search.control.isLoading" >
             
           <!-- photo -->
-          <div class='box_fluid col_fluid'>
+          <div class='box_fluid col_fluid' ng-repeat="guide in search.profiles">
               <a href="#"><img src='/images/bath.jpeg' alt="desc" /></a>
                     <div class='box_fluid_inner'>
                         <a href="#" class="media-photo-badge">

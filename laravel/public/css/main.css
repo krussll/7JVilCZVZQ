@@ -265,7 +265,9 @@ label { margin-bottom: 10px; }
 
 .box_fluid_inner {padding: 0 15px 15px; }
 
-.col_fluid {width: 31%; margin:1%;}
+#container .col_fluid {width: 31%; margin-right:1%;}
+#container .col_fluid:nth-child(3n+3) {margin-right:0%;}
+.
 .col_fluid img {width: 100%;}
 
 .media-photo-badge { width: 60px; height:60px; top: -45px; right: 15px; float:right; position:relative;}
