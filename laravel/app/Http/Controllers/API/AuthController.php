@@ -2,21 +2,30 @@
 
 namespace App\Http\Controllers\API;
 
+use Auth;
+use Input;
 use Illuminate\Routing\Controller as BaseController;
 
 class AuthController extends BaseController
 {
     public function Login()
     {
-		if(Auth::attempt(Input::only('username','password'))){
-			return Auth::user();
+    	if(Auth::attempt(Input::only('email','password'))){
+			return response()->json(true);
 		}else{
-			return 'invalid username/pass combo';
+			return response()->json(false);
 		}
 	}
 		 
 	public Function Logout(){
 		Auth::logout();
-		return 'logged out';
+		return response()->json(true);
 	}
 }
+
+/*
+
+		
+
+		
+		*/

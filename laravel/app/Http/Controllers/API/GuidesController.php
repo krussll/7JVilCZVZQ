@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Routing\Controller as BaseController;
 
 //Define the required repositories
-use App\Repositories\UsersRepository as UsersRepository;
+use App\Repositories\GuidesRepository as GuidesRepository;
 
 class GuidesController extends BaseController
 {
@@ -13,9 +13,9 @@ class GuidesController extends BaseController
     {
     	$location = \Input::get('location');
     	
-    	$rep = new UsersRepository();
+    	$rep = new GuidesRepository();
 
-    	return response()->json($rep->GetLatestUsers());
+    	return response()->json($rep->GetGuidesByGeoLocationRef($location));
     }
 
     

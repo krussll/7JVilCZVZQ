@@ -7,10 +7,33 @@
       <section class="section_light">
         <div  class="row">
           <div class="twelve columns">
-          <h1>Guides - [[$location]]</h1> 
+          <h1>Guides - {{search.locationTitle}}</h1> 
+
+           <form  id ="guideSearch" ng-submit="search.searchGuides()">
+              <div class="row ">
+                  <div class="twelve columns">
+                      <label>Where do you want to go?</label>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="eleven columns">
+                    <input ng-model="search.inputs.location" type="text"  placeholder="e.g. London" googleplace  />
+                  </div>  
+                  <div class="one columns">
+                    <input type="submit" text="Go" class="button success" />
+                  </div>
+               </div>
+             </form>
             <img src='/images/ajax-loader.gif' ng-show="search.control.isLoading" />
             <div id="container" ng-hide="search.control.isLoading" >
-                
+              <div class="row">
+                  <div ng-show="search.profiles == null" class="twelve columns">
+                    <h3>Sorry, we can't find that place! Please try again.
+                  </div> 
+                  <div ng-show="search.profiles.length == 0" class="twelve columns">
+                    <h3>Sorry, we don't currently have any guides in that location.
+                  </div> 
+               </div>
               <!-- guide -->
               <div class='box_fluid col_fluid' ng-repeat="guide in search.profiles">
                   <a href="#"><img src='/images/bath.jpeg' alt="desc" /></a>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
+use App\User;
 use Illuminate\Routing\Controller as BaseController;
 
 //Define the required repositories
@@ -15,5 +15,17 @@ class UsersController extends BaseController
     	return response()->json($rep->GetLatestUsers());
     }
 
-    
+	public function createUser()
+    {
+        $user = User::create([
+            'username' => \Input::get('username'),
+            'firstname' => \Input::get('firstname'),
+            'surname' => \Input::get('surname'),
+            'email' => \Input::get('email'),
+            'password' => bcrypt(\Input::get('password')),
+        ]);
+
+
+    	return response()->json($user);
+    }    
 }

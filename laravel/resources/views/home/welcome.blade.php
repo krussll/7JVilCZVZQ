@@ -18,8 +18,9 @@
          </div>
          <div class="row">
             <div class="eleven columns">
-              <input ng-model="home.search.location" type="text"  placeholder="e.g. London" googleplace />
-            </div>
+              <input ng-model="home.search.location" type="text"  placeholder="e.g. London" googleplace 
+              geo-id="home.geoId"  />
+            </div>  
             <div class="one columns">
               <input type="submit" text="Go" class="button success" />
             </div>

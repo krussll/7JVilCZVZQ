@@ -6,7 +6,7 @@
       <section class="section_light">
           <h1>Login</h1> 
           
-          <form>
+          <form ng-submit="login.submit()">
             <div class="row">
               <div class="six columns offset-by-three">
                 
@@ -16,7 +16,7 @@
                       <label>Email</label>
                   </div>
                   <div class="twelve columns">
-                      <input id="email" type="text" />
+                      <input id="email" ng-model="login.inputs.email" type="text" />
                   </div>
                 </div>
 
@@ -26,7 +26,7 @@
                       <label>Password</label>
                   </div>
                   <div class="twelve columns">
-                      <input id="password" type="password" />
+                      <input id="password" ng-model="login.inputs.password" type="password" />
                   </div>
                 </div>
 

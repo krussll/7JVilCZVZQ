@@ -12,10 +12,11 @@
 */
 
 Route::group(array('prefix'=>'/api'),function(){
-	Route::get('users/latest','API\UsersController@getLatestUsers');
+	Route::get('users/latest','API\UsersController@getLatestUser');
+	Route::post('users/create','API\UsersController@createUser');
 	Route::post('login/auth','API\AuthController@Login');
-	Route::get('login/destroy','API\AuthController@Logout');
-	Route::post('guides/location', 'API\GuidesController@getGuidesByLocation');
+	Route::post('login/destroy','API\AuthController@Logout');
+	Route::get('guides/location', 'API\GuidesController@getGuidesByLocation');
 });
 
 Route::get('/', function () {
@@ -23,9 +24,19 @@ Route::get('/', function () {
 });
 
 Route::get('login', function () {
-    return view('login.login');
+    return view('account.login');
 });
 
+Route::get('register', function () {
+    return view('account.register');
+});
+
+
+	Route::post('logout','AccountController@Logout');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', ['uses' =>'DashboardController@index']);
+});
 
 Route::get('s/{location}', ['uses' =>'SearchController@searchGuides']);
 

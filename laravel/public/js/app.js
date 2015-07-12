@@ -1,4 +1,4 @@
-;(function ($, window, undefined) {
+(function ($, window, undefined) {
   'use strict';
 
   var $doc = $(document),
@@ -55,3 +55,4 @@ $('#guideSearch').on('keyup keypress', function(e) {
     return false;
   }
 });
+

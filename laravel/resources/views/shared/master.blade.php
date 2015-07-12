@@ -18,7 +18,7 @@
     
     </head>
 
-    <body ng-app="myApp"> 
+    <body ng-app="myApp" ng-controller="layoutController"> 
 
 <!-- ######################## Main Menu ######################## -->
     <nav>
@@ -30,13 +30,19 @@
           <div class="nav-bar">
             <ul class="button-group">
             <li><a href="#" class="button">About</a></li>
-            <li><a href="/login" class="button">Login</a></li>
+
+
+            @if (Auth::check())
+                <li><a class="button" ng-click="layout.logout()">Logout</a></li>
+            @else
+                <li><a href="/login" class="button">Login</a></li>
+                <li><a href="/register" class="button">Register</a></li>
+            @endif
             </ul>
           </div>
         </div>
       </div> 
     </nav>
-      
 @yield('content')
 
 <!-- ######################## Footer ######################## -->  

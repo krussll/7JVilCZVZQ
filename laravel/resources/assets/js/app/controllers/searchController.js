@@ -4,21 +4,70 @@ app.controller('searchController', function($scope, $http) {
     	control: {
             isLoading: true
         },
-        searchData: {
+        inputs: {
             location: ''
         },
+        geocode: null,
         profiles: null,
-        init: function ($location)
+        locationTitle:  '',
+        init: function (location)
         {
             var search = this;
-            search.searchData.location = $location;
+            search.inputs.location = location;
             search.control.isLoading = true;
-            $http.post('/api/guides/location', search.searchData)
-                .success(function(data) 
+
+            
+
+                search.searchGuides();
+            
+        },
+        searchGuides: function()
+        {
+            var search = this;
+            search.control.isLoading = true;
+
+            search.locationTitle = search.inputs.location;
+            var service = new google.maps.places.AutocompleteService();
+            var myDataPromise = service.getQueryPredictions({ input: search.inputs.location }, function(predictions, status) 
+            {
+                if (predictions !== null) 
+                {
+                  var foundItem = predictions[0];
+                
+                  if(foundItem.types[0] === 'locality'){
+                      search.geocode = foundItem.id;
+                    }else
                     {
+                        search.geocode = null;
+                    }
+                }else
+                {
+                   search.geocode = null; 
+                }
+            
+
+                console.log(search.geocode);
+
+                if (search.geocode !== null)
+                {
+                    $http.get('/api/guides/location?location=' + search.geocode)
+                    .success(function(data){
                         search.profiles = data;
                         search.control.isLoading = false;
-                });
-        }
+                    })
+                    .error(function (data)
+                    {
+                       search.profiles = null; 
+                        search.control.isLoading = false;
+                    });
+                }else
+                {
+                    search.profiles = null;
+                    search.control.isLoading = false;
+                    console.log(search.control.isLoading);
+                    $scope.$apply();
+                }
+            });
+        }        
 	}
 });

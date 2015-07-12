@@ -17,9 +17,11 @@ elixir(function(mix) {
     	'app/config.js',
     	
     	<!-- controllers -->
+        'app/controllers/layoutController.js',
     	'app/controllers/homeController.js',
     	'app/controllers/loginController.js',
     	'app/controllers/searchController.js',
+        'app/controllers/registerController.js',
 
     	<!-- directives -->
     	'app/directives/autocompleteDirective.js'

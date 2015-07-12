@@ -13,18 +13,12 @@ app.controller('homeController', function($scope, $http, $location) {
     	init: function ()
     	{
     		var home = this;
-    		home.control.isLoading = true;
-    		$http.get('/api/users/latest')
-    			.success(function(data) 
-    				{
-    					home.profiles = data;
-    					home.control.isLoading = false;
-    			});
     	},
+        geoId: null,
     	submit: function () {
             var home = this;
-
-             window.location = "s/" + home.search.location;
-        }
+            window.location = "s/" + home.search.location;
+        },
+        geoid: null,
 	}
 });

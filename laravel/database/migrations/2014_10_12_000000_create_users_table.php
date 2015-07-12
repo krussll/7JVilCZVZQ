@@ -22,9 +22,9 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('users')->insert(['firstname' => 'Steve', 'surname' => 'Austin', 'email' => 'stonecold@test.com', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
-        DB::table('users')->insert(['firstname' => 'Eldon', 'surname' => 'Perry', 'email' => 'e.perry@test.com', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
-        DB::table('users')->insert(['firstname' => 'Herb', 'surname' => 'Brooks', 'email' => 'brooky@test.com', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
+        DB::table('users')->insert(['firstname' => 'Steve', 'password' => bcrypt('pass'), 'surname' => 'Austin', 'email' => 'stonecold@test.com', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
+        DB::table('users')->insert(['firstname' => 'Eldon', 'password' => bcrypt('pass'), 'surname' => 'Perry', 'email' => 'e.perry@test.com', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
+        DB::table('users')->insert(['firstname' => 'Herb', 'password' => bcrypt('pass'), 'surname' => 'Brooks', 'email' => 'brooky@test.com', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
     
     }
 
